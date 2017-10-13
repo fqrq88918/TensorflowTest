@@ -29,10 +29,22 @@ ls -l /usr/local/bin | grep ‘../Library/Frameworks/Python.framework/Versions/3
 
 4/ 通过tensorflow的主页 https://www.tensorflow.org/install/install_mac#the_url_of_the_tensorflow_python_package，下载相应版本的安装whl文件
 
+5/ 安装Anaconda
+通过Anaconda官网下载 https://www.anaconda.com/download/#macos
+
+使用图形界面安装python3.5 
+地址在你Anaconda安装目录下/envs/你的python目录命名
+
+命令 激活python版本 source activate python35。退出python环境 source deactivate python35
+
+6/ 使用pip安装tensorflow
+先进入python3.5环境（因为之前3.6安装出错了）
+source activate python35
+sudo pip install --upgrade 你的whl安装文件的地址
+
+如果提示权限问题 输入以下命令
 sudo chown root /Users/hfcb/Library/Caches/pip/http
 sudo chown root /Users/hfcb/Library/Caches/pip
-5/ 安装Anaconda
-  
 
-
+7/ 安装python的IDE 暂时选择pycharm
 
