@@ -27,6 +27,8 @@ sudo rm -rf “/Applications/Python 3.6”
 cd /usr/local/bin/ 
 ls -l /usr/local/bin | grep ‘../Library/Frameworks/Python.framework/Versions/3.6’ | awk ‘{print $9}’ | tr -d @ | xargs rm
 
+注意：如果找不到对应的framework，去集成环境下找，比如用Homebrew安装的python就不在上述文件夹下
+
 4/ 通过tensorflow的主页 https://www.tensorflow.org/install/install_mac#the_url_of_the_tensorflow_python_package，下载相应版本的安装whl文件
 
 5/ 安装Anaconda

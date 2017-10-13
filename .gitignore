@@ -102,3 +102,9 @@ ENV/
 .mypy_cache/
 
 workspace.xml
+TestTensorFlow/.idea/workspace.xml
+TestTensorFlow/.idea/TestTensorFlow.iml
+TestTensorFlow/.idea/TestTensorFlow.iml
+TestTensorFlow/.idea/workspace.xml
+TestTensorFlow/.idea/misc.xml
+TestTensorFlow/.idea/inspectionProfiles/profiles_settings.xml
