@@ -1,6 +1,5 @@
 import tensorflow as tf
 import numpy as np
-
 # 定义测试函数
 def lm_test(variable):
     init = tf.global_variables_initializer()  # 初始化所有变量
