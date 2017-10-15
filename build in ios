@@ -1,0 +1,2 @@
+从git上下载最新的Tensorflow源码
+进入tensorflow根目录，运行tensorflow/contrib/makefile/build_all_ios.sh
