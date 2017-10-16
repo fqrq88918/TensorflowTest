@@ -4,3 +4,9 @@
 如果提示类似 /usr/local/bin/glibtoolize: line 406: /usr/local/Cellar/../Library/ENV/4.3/sed: No such file or directory的报错，
 Homebrew环境：
     先确定 libtool是否安装 然后安装mozjpeg， brew install mozjpeg
+
+### 注意 Homebrew不好管理python版本 统一使用Anaconda
+执行过程中，在Anaconda中安装相应缺失的链接库
+此次安装过程中 缺失了autoconf automake libtool wget
+
+

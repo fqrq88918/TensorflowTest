@@ -41,6 +41,7 @@ ls -l /usr/local/bin | grep ‘../Library/Frameworks/Python.framework/Versions/3
 
 6/ 使用pip安装tensorflow
 先进入python3.5环境（因为之前3.6安装出错了）
+###  注意，这里的3.6环境 是homebrew的 不好控制 最后我们还是使用Anaconda的python3.6
 source activate python35
 sudo pip install --upgrade 你的whl安装文件的地址
 
