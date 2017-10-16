@@ -1,0 +1,6 @@
+1/ 从git上下载最新的Tensorflow源码
+
+2/ 进入tensorflow根目录，运行tensorflow/contrib/makefile/build_all_ios.sh
+如果提示类似 /usr/local/bin/glibtoolize: line 406: /usr/local/Cellar/../Library/ENV/4.3/sed: No such file or directory的报错，
+Homebrew环境：
+    先确定 libtool是否安装 然后安装mozjpeg， brew install mozjpeg
