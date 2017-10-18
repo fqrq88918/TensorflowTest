@@ -1,6 +1,12 @@
 1/ 从git上下载最新的Tensorflow源码
 
 2/ 进入tensorflow根目录，运行tensorflow/contrib/makefile/build_all_ios.sh
+
+#注意：在构建bazel的时候，只执行上面命令会造成错误，需要先执行
+tensorflow/contrib/makefile/download_dependencies.sh
+
+然后修改build_all_ios.sh 把包含download_dependencies.sh的代码注释掉 因为我们自己已经手动运行过了，可以保证正确性
+
 如果提示类似 /usr/local/bin/glibtoolize: line 406: /usr/local/Cellar/../Library/ENV/4.3/sed: No such file or directory的报错，
 Homebrew环境：
     先确定 libtool是否安装 然后安装mozjpeg， brew install mozjpeg
@@ -9,4 +15,40 @@ Homebrew环境：
 执行过程中，在Anaconda中安装相应缺失的链接库
 此次安装过程中 缺失了autoconf automake libtool wget
 
+3/ 构建bazel 需要先在Anaconda中安装
+bazel build tensorflow/python/tools:freeze_graph
+bazel build tensorflow/python/tools:optimize_for_inference #注意 有问题
 
+报错 :The 'build' command is only supported from within a workspace.
+解决办法 cd tensorflow根目录文件夹
+touch WORKSPACE
+
+报错 not a valid absolute pattern (absolute target patterns must start with exactly two slashes)
+解决办法 bagel build 后面的目录用双斜杠
+cd tensorflow根目录 
+bazel build //tensorflow/python/tools:freeze_graph
+bazel build //tensorflow/python/tools:optimize_for_inference
+
+注意：其实不一定要用双斜杠 需要到tensorflow根目录执行命令
+
+报错:Failed to load Skylark extension '//tensorflow:workspace.bzl'.
+It usually happens when the repository is not defined prior to being used.
+Maybe repository '' was defined later in your WORKSPACE file?
+解决办法:..删掉可能是因为touch WORKSPACE命令在错误目录中执行，导致多了WORKSPACE文件
+
+报错:Current Bazel version is 0.4.5- (@non-git), expected at least 0.5.4
+解决办法：升级bazel库 
+因为Anaconda自带bazel库版本只有4.5 所以退出python3.6环境 用Homebrew安装新版本
+source deactivate python36
+brew install bazel
+
+报错：ERROR: /Volumes/Doc/GitHubWorkspace/LM/tensorflow/tensorflow/core/BUILD:1629:1: no such target '//tensorflow/tools/git:gen/spec.json': target 'gen/spec.json' not declared in package 'tensorflow/tools/git' defined by /Volumes/Doc/GitHubWorkspace/LM/tensorflow/tensorflow/tools/git/BUILD and referenced by '//tensorflow/core:version_info_gen'.
+解决办法：需要去配置tensorflow源码
+cd tensorflow
+./configure
+OpenCL,CUDA,MPI选择否
+
+会在tensorflow根目录下生成bazel-genfiles等文件，一些要用的framework就在其中，并注意官方demo对framework的引用有歧义
+比如:
+#include <bazel-genfiles/tensorflow/core/framework/device_attributes.pb.h>  正确写法
+//#include "tensorflow/core/framework/device_attributes.pb.h" 官方写法，环境中的类库不一定在一样的绝对路径
