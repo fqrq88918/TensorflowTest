@@ -1,5 +1,33 @@
-安装rvm
+1/ 安装rvm
 curl -L get.rvm.io | bash -s stable
 然后启动rvm 
 source /Users/hfcb/.rvm/scripts/rvm
 执行rvm -v 如果打印版本号 说明安装成功
+查看ruby版本号 ruby -v
+再查看rvm支持的ruby的最新版本 rvm list known 找到当前最新版本是2.4
+更新2.4版本的ruby rvm install 2.4
+
+2/ 升级RubyGems版本
+sudo gem update --system
+查看gem版本，要2.6以上
+
+3/ 更改gem源
+查看当前的gem源
+gem sources -l
+发现我们的源是https://rubygems.org/
+开始修改
+gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+再次查看当前的gem源，确认修改成https://gems.ruby-china.org/
+
+3/ 安装CocoaPods
+sudo gem install cocoapods
+验证是否安装成功
+pod --version
+下载CocoaPods镜像
+pod setup # 因为速度太慢 且不能断点续传 我们使用git下载
+地址：https://github.com/CocoaPods/Specs
+
+下载完成后，在open ~/.cocoapods/repos文件夹中新建master文件夹，然后放进去
+
+进入tensorflow的camera examples项目路径 执行pod install
+
