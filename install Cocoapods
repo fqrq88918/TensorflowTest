@@ -1,0 +1,5 @@
+安装rvm
+curl -L get.rvm.io | bash -s stable
+然后启动rvm 
+source /Users/hfcb/.rvm/scripts/rvm
+执行rvm -v 如果打印版本号 说明安装成功
