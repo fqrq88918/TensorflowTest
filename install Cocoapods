@@ -28,6 +28,25 @@ pod setup # 因为速度太慢 且不能断点续传 我们使用git下载
 地址：https://github.com/CocoaPods/Specs
 
 下载完成后，在open ~/.cocoapods/repos文件夹中新建master文件夹，然后放进去
+最后再执行sudo gem install cocoapods 通过我们下载的镜像安装
 
-进入tensorflow的camera examples项目路径 执行pod install
+进入tensorflow的camera examples项目路径 执行pod install 确保有Podfile文件 如果是全新项目，需要手动创建
+比如：
+简单解释一下：
+
+1.第一行是镜像地址，默认都是这个，不用改
+
+2.第二行platform是平台的意思，填ios，'8.0'是项目支持的最低ios系统版本
+
+3.第三行是项目里target名字，你根据项目target名字填就行。后面注意有个"do ... end"，别忘了写
+
+4.第四行开始用"do ... end"包含起来的以pod开头的就是你导入的第三方库的名字，后面的数字是导入的第三方库的版本号。'~>3.0'的意思是大于3.0的版本。
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+target 'targetName' do
+    pod 'AFNetworking', '~> 3.0'
+    pod 'Masonry', '~> 0.6.1'
+end
+
+
 
