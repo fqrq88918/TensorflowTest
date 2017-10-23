@@ -52,3 +52,4 @@ OpenCL,CUDA,MPI选择否
 比如:
 #include <bazel-genfiles/tensorflow/core/framework/device_attributes.pb.h>  正确写法
 //#include "tensorflow/core/framework/device_attributes.pb.h" 官方写法，环境中的类库不一定在一样的绝对路径
+或者在Header Search Paths中直接引入bazel-genfiles的路径(头文件)

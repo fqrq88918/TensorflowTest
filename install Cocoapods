@@ -19,7 +19,7 @@ gem sources -l
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 再次查看当前的gem源，确认修改成https://gems.ruby-china.org/
 
-3/ 安装CocoaPods
+3/ 安装CocoaPods(最终还是采用pod setup避免错误)
 sudo gem install cocoapods
 验证是否安装成功
 pod --version
@@ -29,6 +29,18 @@ pod setup # 因为速度太慢 且不能断点续传 我们使用git下载
 
 下载完成后，在open ~/.cocoapods/repos文件夹中新建master文件夹，然后放进去
 最后再执行sudo gem install cocoapods 通过我们下载的镜像安装
+
+#注意 手动下载的镜像文件会报错：
+pod[!] Unable to add a source with url `https://github.com/CocoaPods/Specs.git` named `master`.You can try adding it manually in `~/.cocoapods/repos` or via `pod repo add`.
+
+解决方案:pod repo add master https://github.com/CocoaPods/Specs.git
+然后提示执行'pod setup'
+
+如果出现
+pod[!] The `master` repo is not a git repo.
+进入/users/你的用户名/.cocoapods/repos，删除master文件夹然后执行
+pod setup
+
 
 进入tensorflow的camera examples项目路径 执行pod install 确保有Podfile文件 如果是全新项目，需要手动创建
 比如：
