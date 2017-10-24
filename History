@@ -3,3 +3,14 @@ https://github.com/hwchong/MNIST_DRAW/tree/master/Training/models
 http://www.jianshu.com/p/09ee4644df83
 https://github.com/mattrajca/MNIST
 http://blog.csdn.net/chaipp0607/article/details/72847422
+
+
+#region 面部特征点
+https://www.kaggle.com/c/facial-keypoints-detection/discussion/19294
+https://github.com/saber1988/facial-keypoints-detection
+
+其他参考项目
+https://gist.github.com/bigsnarfdude/fff0216eac4bc549c4f56c2cf6068414
+https://github.com/noahgolmant/facial-keypoints-detection
+https://navoshta.com/facial-with-tensorflow/
+#end
