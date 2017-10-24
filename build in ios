@@ -6,6 +6,7 @@
 tensorflow/contrib/makefile/download_dependencies.sh
 
 然后修改build_all_ios.sh 把包含download_dependencies.sh的代码注释掉 因为我们自己已经手动运行过了，可以保证正确性
+#注意 如果bazel-genfiles等文件夹已经生成了，然后build_all_ios.sh又出错了，需要去掉download_dependencies.sh的注释，全部重新bulid一遍
 
 如果提示类似 /usr/local/bin/glibtoolize: line 406: /usr/local/Cellar/../Library/ENV/4.3/sed: No such file or directory的报错，
 Homebrew环境：
