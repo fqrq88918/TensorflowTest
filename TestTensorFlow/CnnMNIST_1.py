@@ -1,7 +1,10 @@
 import  tensorflow as tf
+import  tflearn
 from  tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/",one_hot=true)
 sess = tf.InteractiveSession() # 默认的session
+
+#测试tflearn
 
 #定义权重，加上噪声打破完全对称，比如截断的正太分布噪声，标准差为0.1
 def weight_function(shape):
@@ -20,6 +23,7 @@ def conv2d_function(x,W):
 #定义池化函数 使用2x2最大池化，就是将2x2的像素块降为1x1像素; 布长为2，缩小图片尺寸->strides=[1,2,2,1]
 def pool_function(x):
     return  tf.nn.max_pool(x,ksize=[1,2,2,1],strides=[1,2,2,1],padding='SAME')
+
 
 #定义输入的placeholder
 x = tf.placeholder(dtype= tf.float32,shape=[0,784])
