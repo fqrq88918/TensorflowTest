@@ -51,3 +51,7 @@ sudo chown root /Users/hfcb/Library/Caches/pip
 
 7/ 安装python的IDE 暂时选择pycharm
 
+8/ 安装tflearn
+source activate python36 先进入python3.6环境
+sudo pip install tflearn
+
